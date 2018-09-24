@@ -19,9 +19,9 @@ public class AlunoServlet extends HttpServlet {
 
         Aluno aluno = new Aluno(nome, p1, p2);
 
-        response.setContentType("text/plain");
+        response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        out.print(aluno.getMedia());
+        out.print("{ \"media\": " + aluno.getMedia() + ", \"aprovado\": " + aluno.isAprovado() + " }");
     }
 
 }

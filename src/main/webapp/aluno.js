@@ -8,7 +8,8 @@ $(document).ready(function () {
                 p2: $('#p2').val()
             },
             success: function (data) {
-                $('#media').val(data);
+                $('#media').val(data.media);
+                $('#aprovado').val(data.aprovado ? 'Sim' : 'Não');
             }
         });
     });
