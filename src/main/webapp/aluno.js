@@ -8,7 +8,7 @@ $(document).ready(function () {
                 p2: $('#p2').val()
             },
             success: function (data) {
-                alert(data);
+                $('#media').val(data);
             }
         });
     });
