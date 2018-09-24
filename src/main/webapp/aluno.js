@@ -10,6 +10,11 @@ $(document).ready(function () {
             success: function (data) {
                 $('#media').val(data.media);
                 $('#aprovado').val(data.aprovado ? 'Sim' : 'Não');
+            },
+            statusCode: {
+                400: function () {
+                    alert('Por favor, entre com notas válidas!');
+                }
             }
         });
     });

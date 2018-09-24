@@ -13,15 +13,19 @@ public class AlunoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nome = request.getParameter("nome");
-        double p1 = Double.parseDouble(request.getParameter("p1"));
-        double p2 = Double.parseDouble(request.getParameter("p2"));
+        try {
+            String nome = request.getParameter("nome");
+            double p1 = Double.parseDouble(request.getParameter("p1"));
+            double p2 = Double.parseDouble(request.getParameter("p2"));
 
-        Aluno aluno = new Aluno(nome, p1, p2);
+            Aluno aluno = new Aluno(nome, p1, p2);
 
-        response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        out.print("{ \"media\": " + aluno.getMedia() + ", \"aprovado\": " + aluno.isAprovado() + " }");
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.print("{ \"media\": " + aluno.getMedia() + ", \"aprovado\": " + aluno.isAprovado() + " }");
+        } catch (NumberFormatException ex) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        }
     }
 
 }
