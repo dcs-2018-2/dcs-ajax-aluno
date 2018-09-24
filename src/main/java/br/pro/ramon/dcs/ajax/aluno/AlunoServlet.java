@@ -21,7 +21,7 @@ public class AlunoServlet extends HttpServlet {
 
         response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
-        out.print("A média do aluno " + aluno.getNome() + " é " + aluno.getMedia() + ".");
+        out.print(aluno.getMedia());
     }
 
 }
